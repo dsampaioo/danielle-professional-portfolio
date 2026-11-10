@@ -4,130 +4,792 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Danielle Sampaio | Professional Portfolio</title>
+<meta name="description" content="Danielle Sampaio's professional portfolio in translation, customer support and digital marketing.">
+<title>Danielle Sampaio | Portfolio</title>
+
 <style>
-* { box-sizing: border-box; }
-body {
+:root {
+  --purple: #8b6bb1;
+  --purple-dark: #63477f;
+  --purple-light: #f0e9f8;
+  --lavender: #faf7fd;
+  --white: #ffffff;
+  --text: #35303c;
+  --muted: #777080;
+  --border: #eee8f3;
+}
+
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f7f8fc;
-  color: #273248;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--white);
+  color: var(--text);
   line-height: 1.7;
 }
-header {
-  background: #172b4d;
-  color: white;
-  text-align: center;
-  padding: 65px 20px;
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
-header h1 { font-size: 38px; margin: 0; }
-header p { color: #d8e2f2; }
-.container { max-width: 900px; margin: auto; padding: 25px 20px; }
-h2 { color: #244b75; }
+
+.container {
+  width: min(1080px, 90%);
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.nav-content {
+  min-height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--purple-dark);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  transition: .2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+}
+
+.menu-button {
+  display: none;
+  background: var(--purple-light);
+  border: none;
+  color: var(--purple-dark);
+  border-radius: 8px;
+  padding: 9px 13px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* BUTTONS */
+
+.button {
+  display: inline-block;
+  background: var(--purple);
+  color: white;
+  padding: 12px 23px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: .25s;
+  border: 1px solid var(--purple);
+}
+
+.button:hover {
+  background: var(--purple-dark);
+  transform: translateY(-2px);
+}
+
+.button-outline {
+  background: transparent;
+  color: var(--purple-dark);
+}
+
+.button-outline:hover {
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  background: linear-gradient(135deg, #faf7fd, #f0e8f8);
+  padding: 105px 0;
+  text-align: center;
+}
+
+.hero-label {
+  display: inline-block;
+  padding: 7px 16px;
+  background: white;
+  color: var(--purple-dark);
+  border-radius: 30px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 60px);
+  line-height: 1.15;
+  color: #30263b;
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: var(--purple);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 590px;
+  margin: 0 auto 27px;
+  font-size: 16px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+  padding: 85px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-heading span {
+  color: var(--purple);
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  font-size: 31px;
+  color: #30263b;
+  margin-top: 7px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* ABOUT */
+
+.about-content {
+  max-width: 760px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-content p {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.skill {
+  background: var(--purple-light);
+  color: var(--purple-dark);
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* SERVICES */
+
+.services-section {
+  background: var(--lavender);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 .card {
   background: white;
-  padding: 23px;
-  margin: 18px 0;
-  border-radius: 12px;
-  box-shadow: 0 3px 14px #172b4d12;
+  padding: 28px 23px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  transition: .25s;
 }
-.tag {
-  display: inline-block;
-  background: #e9eff8;
-  color: #244b75;
-  padding: 5px 12px;
-  border-radius: 20px;
-  margin: 4px;
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px #75559a15;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--purple-light);
+  color: var(--purple-dark);
+  font-size: 22px;
+  margin-bottom: 17px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin-bottom: 9px;
+  color: #40354c;
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* PROJECTS */
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.project {
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 25px;
+  background: white;
+}
+
+.project-number {
+  font-size: 12px;
+  color: var(--purple);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.project h3 {
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.project p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 17px;
+}
+
+.project a {
+  color: var(--purple-dark);
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}
+
+/* EDUCATION */
+
+.education-section {
+  background: var(--lavender);
+}
+
+.education-box {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 13px;
+  border: 1px solid var(--border);
+}
+
+.education-box h3 {
+  color: var(--purple-dark);
+  margin-bottom: 8px;
+}
+
+.education-box p {
+  color: var(--muted);
   font-size: 14px;
 }
-a { color: #245c91; }
-footer {
+
+/* LANGUAGES */
+
+.language-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.language {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 35px;
   text-align: center;
+}
+
+.language strong {
+  display: block;
+  color: var(--purple-dark);
+  margin-bottom: 5px;
+}
+
+.language span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* CONTACT */
+
+.contact-section {
+  background: linear-gradient(135deg, #f5effb, #faf7fd);
+  text-align: center;
+}
+
+.contact-section p {
+  color: var(--muted);
+  margin: 12px auto 23px;
+  font-size: 14px;
+}
+
+.contact-email {
+  display: inline-block;
+  color: var(--purple-dark);
+  font-weight: bold;
+  margin-bottom: 22px;
+}
+
+/* FOOTER */
+
+footer {
   padding: 25px;
-  background: #172b4d;
-  color: white;
-  margin-top: 35px;
+  background: #30263b;
+  color: #e9e1ef;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+  .menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 13px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 75px 0;
+  }
+
+  section {
+    padding: 65px 0;
+  }
+
+  .section-heading h2 {
+    font-size: 26px;
+  }
 }
 </style>
 </head>
+
 <body>
 
-<header>
-  <h1>Danielle Sampaio</h1>
-  <p>Translator | Customer Support | Digital Marketing</p>
-  <p>Professional Portfolio</p>
-</header>
+<!-- NAVIGATION -->
 
-<main class="container">
+<nav>
+  <div class="container nav-content">
+    <a class="logo" href="#home">DANIELLE.</a>
 
-<section class="card">
-  <h2>About Me</h2>
-  <p>
-    I am a dedicated and detail-oriented professional
-    with a background in Digital Marketing, e-commerce
-    and customer service. I am interested in translation,
-    proofreading and remote customer support.
-    I value clear communication, organization and
-    quality work.
-  </p>
+    <button class="menu-button" id="menuButton"
+      aria-label="Open navigation menu" aria-expanded="false">
+      ☰
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+  <div class="container">
+    <span class="hero-label">WELCOME TO MY PORTFOLIO</span>
+
+    <h1>Hello, I'm <span>Danielle Sampaio</span></h1>
+
+    <p>
+      Translator, Customer Support Professional and
+      Digital Marketing Graduate. Helping businesses
+      communicate clearly and connect with their customers.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#projects" class="button">Explore My Work</a>
+      <a href="#contact" class="button button-outline">Contact Me</a>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>My Services</h2>
-  <ul>
-    <li>English to Portuguese translation</li>
-    <li>Customer service and support</li>
-    <li>Proofreading and text editing</li>
-    <li>E-commerce product descriptions</li>
-    <li>Virtual assistance and administrative support</li>
-  </ul>
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container">
+    <div class="section-heading">
+      <span>Get to know me</span>
+      <h2>About Me</h2>
+      <p>A little about my background and professional interests.</p>
+    </div>
+
+    <div class="about-content">
+      <p>
+        I am a dedicated and detail-oriented professional
+        with a background in Digital Marketing, e-commerce
+        and customer service.
+      </p>
+
+      <p>
+        I am interested in translation, proofreading,
+        customer support and virtual assistance. I value
+        clear communication, organization, attention to
+        detail and quality work.
+      </p>
+
+      <p>
+        My goal is to help clients with reliable support,
+        clear communication and well-organized content.
+      </p>
+
+      <div class="skills">
+        <span class="skill">Translation</span>
+        <span class="skill">Customer Support</span>
+        <span class="skill">Proofreading</span>
+        <span class="skill">E-commerce</span>
+        <span class="skill">Digital Marketing</span>
+        <span class="skill">Communication</span>
+        <span class="skill">Organization</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>My Portfolio Projects</h2>
-  <p>Explore my sample projects and practical work:</p>
-  <ul>
-    <li><a href="translation-sample-01.md">Translation Sample</a></li>
-    <li><a href="customer-service-sample-01.md">Customer Service Sample</a></li>
-    <li><a href="proofreading-sample-01.md">Proofreading Sample</a></li>
-    <li><a href="ecommerce-product-descriptions-01.md">E-commerce Product Descriptions</a></li>
-    <li><a href="virtual-assistant-sample-01.md">Virtual Assistant Sample</a></li>
-  </ul>
+<!-- SERVICES -->
+
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <span>What I can do</span>
+      <h2>My Services</h2>
+      <p>Professional support for your business and projects.</p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-icon">文</div>
+        <h3>Translation</h3>
+        <p>
+          English to Portuguese translation of general
+          texts, product descriptions and other content.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">♡</div>
+        <h3>Customer Support</h3>
+        <p>
+          Customer inquiries, message management,
+          helpful responses and customer assistance.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">✎</div>
+        <h3>Proofreading</h3>
+        <p>
+          Text review, grammar correction, spelling
+          and improvements in clarity.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">▣</div>
+        <h3>E-commerce</h3>
+        <p>
+          Product descriptions, online store content
+          and product presentation.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">⌘</div>
+        <h3>Virtual Assistance</h3>
+        <p>
+          Email organization, data entry,
+          administrative support and task organization.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">✧</div>
+        <h3>Digital Marketing</h3>
+        <p>
+          Digital content, product promotion
+          and support for online business activities.
+        </p>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>Skills</h2>
-  <span class="tag">Translation</span>
-  <span class="tag">Customer Support</span>
-  <span class="tag">Proofreading</span>
-  <span class="tag">Digital Marketing</span>
-  <span class="tag">E-commerce</span>
-  <span class="tag">Communication</span>
-  <span class="tag">Organization</span>
+<!-- PROJECTS -->
+
+<section id="projects">
+  <div class="container">
+    <div class="section-heading">
+      <span>My portfolio</span>
+      <h2>Sample Projects</h2>
+      <p>Explore my demonstration projects and examples.</p>
+    </div>
+
+    <div class="project-list">
+
+      <article class="project">
+        <span class="project-number">PROJECT 01</span>
+        <h3>English to Portuguese Translation</h3>
+        <p>
+          A product description translated from English
+          into natural Portuguese.
+        </p>
+        <a href="translation-sample-01.md">View Project →</a>
+      </article>
+
+      <article class="project">
+        <span class="project-number">PROJECT 02</span>
+        <h3>Customer Service</h3>
+        <p>
+          Examples of professional customer communication
+          and support responses.
+        </p>
+        <a href="customer-service-sample-01.md">View Project →</a>
+      </article>
+
+      <article class="project">
+        <span class="project-number">PROJECT 03</span>
+        <h3>Proofreading</h3>
+        <p>
+          English grammar, spelling and text
+          improvement examples.
+        </p>
+        <a href="proofreading-sample-01.md">View Project →</a>
+      </article>
+
+      <article class="project">
+        <span class="project-number">PROJECT 04</span>
+        <h3>E-commerce Product Descriptions</h3>
+        <p>
+          Commercial product descriptions for
+          online stores.
+        </p>
+        <a href="ecommerce-product-descriptions-01.md">View Project →</a>
+      </article>
+
+      <article class="project">
+        <span class="project-number">PROJECT 05</span>
+        <h3>Virtual Assistant</h3>
+        <p>
+          Examples of administrative assistance,
+          email management and organization.
+        </p>
+        <a href="virtual-assistant-sample-01.md">View Project →</a>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>Education</h2>
-  <p>Digital Marketing — UNICID (Cruzeiro do Sul University)</p>
+<!-- EDUCATION -->
+
+<section class="education-section" id="education">
+  <div class="container">
+    <div class="section-heading">
+      <span>My background</span>
+      <h2>Education</h2>
+    </div>
+
+    <div class="education-box">
+      <h3>Digital Marketing</h3>
+      <p>Universidade Cruzeiro do Sul (UNICID)</p>
+      <p>2026</p>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>Languages</h2>
-  <p>Portuguese — Native</p>
-  <p>English — Fluent</p>
+<!-- LANGUAGES -->
+
+<section id="languages">
+  <div class="container">
+    <div class="section-heading">
+      <span>Communication</span>
+      <h2>Languages</h2>
+    </div>
+
+    <div class="language-list">
+      <div class="language">
+        <strong>Portuguese</strong>
+        <span>Native</span>
+      </div>
+
+      <div class="language">
+        <strong>English</strong>
+        <span>Fluent</span>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>Contact</h2>
-  <p>Available for freelance opportunities and professional collaborations.</p>
-  <p>Email: dsampaioo2002@gmail.com</p>
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-heading">
+      <span>Let's connect</span>
+      <h2>Contact Me</h2>
+    </div>
+
+    <p>
+      Interested in working together?
+      Feel free to contact me.
+    </p>
+
+    <a class="contact-email"
+       href="mailto:dsampaioo2002@gmail.com">
+      dsampaioo2002@gmail.com
+    </a>
+    <br>
+
+    <a class="button"
+       href="mailto:dsampaioo2002@gmail.com?subject=Freelance%20Project">
+      Send Me an Email
+    </a>
+  </div>
 </section>
 
-</main>
+<!-- FOOTER -->
 
 <footer>
-  <p>© 2026 Danielle Sampaio | Professional Portfolio</p>
+  <p>© 2026 Danielle Sampaio. All rights reserved.</p>
+  <p>Professional Portfolio</p>
 </footer>
+
+<script>
+const menuButton = document.getElementById("menuButton");
+const navLinks = document.getElementById("navLinks");
+const links = document.querySelectorAll(".nav-links a");
+
+menuButton.addEventListener("click", function() {
+  const isOpen = navLinks.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", isOpen);
+  menuButton.textContent = isOpen ? "✕" : "☰";
+});
+
+links.forEach(function(link) {
+  link.addEventListener("click", function() {
+    navLinks.classList.remove("open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰";
+
+    links.forEach(function(item) {
+      item.classList.remove("active");
+    });
+
+    link.classList.add("active");
+  });
+});
+</script>
 
 </body>
 </html>
