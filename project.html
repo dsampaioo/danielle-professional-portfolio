@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project | Danielle Sampaio</title>
+<style>
+:root {
+  --purple: #8b6bb1;
+  --dark: #63477f;
+  --light: #f0e9f8;
+  --bg: #faf7fd;
+  --text: #35303c;
+  --muted: #777080;
+  --border: #eee8f3;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+}
+nav {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  color: var(--dark);
+  font-weight: bold;
+  font-size: 21px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.back {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+main {
+  width: min(850px, 90%);
+  margin: 55px auto;
+}
+.label {
+  color: var(--purple);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+h1 { color: #30263b; line-height: 1.25; }
+h2 { color: var(--dark); font-size: 19px; }
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  padding: 25px;
+  margin: 20px 0;
+  overflow-wrap: anywhere;
+}
+.example {
+  background: var(--bg);
+  border-left: 4px solid var(--purple);
+  border-radius: 5px;
+  padding: 16px;
+  margin-top: 12px;
+}
+.note { color: var(--muted); font-size: 13px; }
+.tag {
+  display: inline-block;
+  background: var(--light);
+  color: var(--dark);
+  border-radius: 30px;
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 12px;
+}
+footer {
+  background: #30263b;
+  color: white;
+  text-align: center;
+  padding: 22px;
+  font-size: 12px;
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="index.html#home">DANIELLE.</a>
+  <a class="back" href="index.html#projects">← Back to portfolio</a>
+</nav>
+
+<main>
+  <span class="label">Portfolio / Sample Project</span>
+  <h1 id="title">Project</h1>
+  <p id="intro"></p>
+  <div id="content"></div>
+  <p class="note">This is a demonstration project created to showcase skills. It is not presented as previous client work.</p>
+  <a class="back" href="index.html#projects">← Back to all projects</a>
+</main>
+
+<footer>© 2026 Danielle Sampaio · Professional Portfolio</footer>
+
+<script>
+const projects = {
+  translation: {
+    title: "English to Portuguese Translation",
+    intro: "Product description translation with natural, clear Portuguese.",
+    sections: [
+      ["Original Text (English)", "Discover our new collection of comfortable and stylish women's clothing. Designed for everyday wear, our pieces combine quality, elegance, and comfort. Find your favorite style and enjoy a perfect fit for every occasion."],
+      ["Portuguese Translation", "Conheça nossa nova coleção de roupas femininas confortáveis e estilosas. Desenvolvidas para o dia a dia, nossas peças combinam qualidade, elegância e conforto. Encontre seu estilo favorito e aproveite um caimento perfeito para todas as ocasiões."]
+    ],
+    skills: ["English to Portuguese", "Natural language adaptation", "Grammar", "E-commerce content"]
+  },
+  customer: {
+    title: "Customer Support",
+    intro: "Examples of polite and professional customer communication.",
+    sections: [
+      ["Customer Inquiry", "Customer: Hello! I would like to know more about your product. Is it available in different sizes?"],
+      ["Suggested Response", "Hello! Thank you for your interest. Yes, our product is available in different sizes. I would be happy to help you find the best option for your needs. Please let me know if you have any other questions!"],
+      ["Order Delay", "Customer: Hi! My order has not arrived yet. Can you help me?"],
+      ["Suggested Response", "Hello! I'm sorry for the delay and understand your concern. I'd be happy to help you check your order status. Could you please provide your order number so I can assist you?"],
+      ["Customer Complaint", "Customer: I received my order, but the product is different from what I expected."],
+      ["Suggested Response", "Hello! I'm sorry to hear that your experience did not meet your expectations. Could you please share more details about the issue so we can find the best solution?"]
+    ],
+    skills: ["Customer communication", "Message writing", "Problem-solving", "Friendly support"]
+  },
+  proofreading: {
+    title: "English Proofreading",
+    intro: "A sample showing grammar, punctuation, and clarity improvements.",
+    sections: [
+      ["Original Text", "Hello, we are happy to present our new product. It are made with high quality materials and provide comfort for everyday use. Our customers can choose between differents colors and sizes."],
+      ["Corrected Text", "Hello! We are happy to present our new product. It is made with high-quality materials and provides comfort for everyday use. Our customers can choose from different colors and sizes."],
+      ["Corrections Made", "Corrected subject-verb agreement, improved grammar and sentence structure, corrected adjective usage, and improved punctuation."]
+    ],
+    skills: ["English proofreading", "Grammar", "Spelling", "Punctuation", "Clarity"]
+  },
+  ecommerce: {
+    title: "E-commerce Product Descriptions",
+    intro: "Sample product descriptions designed for online stores.",
+    sections: [
+      ["Women's Summer Dress", "Discover the perfect summer look with this beautiful women's dress. Designed for comfort and style, it is ideal for casual outings, vacations, and special occasions."],
+      ["Women's Casual Shorts", "Enjoy comfort and versatility with these women's casual shorts. Made for everyday wear, they offer a comfortable fit and a modern look."],
+      ["Phone Case", "Protect your phone while adding personality to your everyday style. This stylish phone case combines a beautiful design with practical everyday protection."]
+    ],
+    skills: ["Product descriptions", "E-commerce content", "Persuasive writing", "Product presentation"]
+  },
+  assistant: {
+    title: "Virtual Assistant",
+    intro: "A demonstration of organized administrative communication.",
+    sections: [
+      ["Sample Email", "Subject: Follow-up on Pending Tasks"],
+      ["Message", "Hello, I am following up on the pending tasks for this week. I have organized the current priorities and can help update the task list as new requests arrive. Please let me know if there are any changes to the schedule."],
+      ["Organization Approach", "Keep messages clear, organize tasks by priority, maintain accurate records, and communicate progress professionally."]
+    ],
+    skills: ["Organization", "Email communication", "Administrative support", "Task tracking"]
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const key = params.get("project") || "translation";
+const project = projects[key] || projects.translation;
+
+document.title = project.title + " | Danielle Sampaio";
+document.getElementById("title").textContent = project.title;
+document.getElementById("intro").textContent = project.intro;
+
+const content = document.getElementById("content");
+project.sections.forEach(function(section) {
+  const panel = document.createElement("section");
+  panel.className = "panel";
+
+  const heading = document.createElement("h2");
+  heading.textContent = section[0];
+
+  const example = document.createElement("div");
+  example.className = "example";
+  example.textContent = section[1];
+
+  panel.appendChild(heading);
+  panel.appendChild(example);
+  content.appendChild(panel);
+});
+
+const skillsPanel = document.createElement("section");
+skillsPanel.className = "panel";
+const skillsHeading = document.createElement("h2");
+skillsHeading.textContent = "Skills Demonstrated";
+skillsPanel.appendChild(skillsHeading);
+
+project.skills.forEach(function(skill) {
+  const tag = document.createElement("span");
+  tag.className = "tag";
+  tag.textContent = skill;
+  skillsPanel.appendChild(tag);
+});
+content.appendChild(skillsPanel);
+</script>
+</body>
+</html>
