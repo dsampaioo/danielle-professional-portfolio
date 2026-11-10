@@ -20,4 +20,4 @@ Skills Demonstrated
 - E-commerce content translation
 - Attention to detail
 
-Note: This is a sample project created to demonstrate translation skills.
+Note: This is a sample project created to demonstrate translation skills. 
